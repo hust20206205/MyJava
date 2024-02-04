@@ -10,6 +10,10 @@
     </parent>
 
     <artifactId>product-service</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>product-domain</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
