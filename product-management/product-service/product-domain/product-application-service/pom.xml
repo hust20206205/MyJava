@@ -11,6 +11,11 @@
 
     <artifactId>product-application-service</artifactId>
 
-    
+    <dependencies>
+        <dependency>
+            <groupId>com.product.management</groupId>
+            <artifactId>product-domain-core</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

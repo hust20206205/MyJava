@@ -11,6 +11,30 @@
 
     <artifactId>product-container</artifactId>
 
-    
+
+
+
+    <dependencies>
+        <dependency>
+            <groupId>com.product.management</groupId>
+            <artifactId>product-domain-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.product.management</groupId>
+            <artifactId>product-application-service</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.product.management</groupId>
+            <artifactId>product-application</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.product.management</groupId>
+            <artifactId>product-dataaccess</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.product.management</groupId>
+            <artifactId>product-messaging</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

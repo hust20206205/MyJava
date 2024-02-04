@@ -11,6 +11,13 @@
 
     <artifactId>product-messaging</artifactId>
 
-    
+
+
+    <dependencies>
+        <dependency>
+            <groupId>com.product.management</groupId>
+            <artifactId>product-application-service</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
