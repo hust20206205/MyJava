@@ -2,6 +2,7 @@ package com.product.management.domain.entity;
 
 import java.util.Objects;
 
+// thiết kế hướng tên miền (Domain Driven Design)
 public abstract class BaseEntity<ID> {
     private ID id;
 
@@ -12,7 +13,6 @@ public abstract class BaseEntity<ID> {
     public void setId(ID id) {
         this.id = id;
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
