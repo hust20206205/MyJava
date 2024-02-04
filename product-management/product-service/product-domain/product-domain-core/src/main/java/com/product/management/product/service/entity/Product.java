@@ -11,7 +11,7 @@ import java.util.UUID;
 public class Product extends AggregateRoot<ProductId> {
    private final  String name;
     private   ProductStatus productStatus;
-    private List<String> failureMessages;
+    
 
 
     
@@ -26,21 +26,40 @@ public class Product extends AggregateRoot<ProductId> {
 
     public void validateProduct() {
         if (getId() == null) {
-            throw new ProductDomainException("Product id cannot be null!");
+            throw new ProductDomainException("Product id");
         }
         if (productStatus == null) {
-            throw new ProductDomainException("Product status cannot be null!");
+            throw new ProductDomainException("Product status");
         }
         if (name == null) {
-            throw new ProductDomainException("Product name cannot be null!");
+            throw new ProductDomainException("Product name");
         }
     }
 
 
-//    create new
-//    update
-//
-//            delete
+
+
+public void create() {
+    if (productStatus != ProductStatus.PENDING) {
+        throw new ProductDomainException("Product PENDING");
+    }
+    productStatus = ProductStatus.ACTIVE;
+}
+
+public void update(String newName) {
+    if (productStatus != ProductStatus.ACTIVE) {
+        throw new ProductDomainException("Product ACTIVE");
+    }
+    this.name = newName;
+}
+
+
+public void delete() {
+    if (productStatus == ProductStatus.DELETED) {
+        throw new ProductDomainException("Product DELETED");
+    }
+    productStatus = ProductStatus.DELETED;
+}
 
 
 
@@ -48,14 +67,14 @@ public class Product extends AggregateRoot<ProductId> {
    super.setId(builder.productId);
         name = builder.name;
         productStatus = builder.productStatus;
-        failureMessages = builder.failureMessages;
     }
+        
 
     public static final class Builder {
         private ProductId productId;
         private String name;
         private ProductStatus productStatus;
-        private List<String> failureMessages;
+        
 
         private Builder() {
         }
@@ -78,11 +97,7 @@ public class Product extends AggregateRoot<ProductId> {
             productStatus = val;
             return this;
         }
-
-        public Builder failureMessages(List<String> val) {
-            failureMessages = val;
-            return this;
-        }
+        
 
         public Product build() {
             return new Product(this);
@@ -97,8 +112,5 @@ public class Product extends AggregateRoot<ProductId> {
     public ProductStatus getProductStatus() {
         return productStatus;
     }
-
-    public List<String> getFailureMessages() {
-        return failureMessages;
-    }
+    
 }
