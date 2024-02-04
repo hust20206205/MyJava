@@ -1,15 +1,15 @@
-package com.product.management.product.service.entity;
+package com.product.management.product.service.domain.entity;
 
 import com.product.management.domain.entity.AggregateRoot;
 import com.product.management.domain.valueobject.ProductId;
-import com.product.management.product.service.exception.ProductDomainException;
-import com.product.management.product.service.valueobject.ProductStatus;
+import com.product.management.product.service.domain.exception.ProductDomainException;
+import com.product.management.product.service.domain.valueobject.ProductStatus;
 
 import java.util.List;
 import java.util.UUID;
 
 public class Product extends AggregateRoot<ProductId> {
-   private final  String name;
+   private    String name;
     private   ProductStatus productStatus;
     
 
@@ -50,7 +50,7 @@ public void update(String newName) {
     if (productStatus != ProductStatus.ACTIVE) {
         throw new ProductDomainException("Product ACTIVE");
     }
-    this.name = newName;
+    name = newName;
 }
 
 

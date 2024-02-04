@@ -1,4 +1,4 @@
-package com.product.management.product.service.exception;
+package com.product.management.product.service.domain.exception;
 
 import com.product.management.domain.exception.DomainException;
 
